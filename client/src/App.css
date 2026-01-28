@@ -1,0 +1,110 @@
+/* src/styles/grid.css */
+/* Light backgrounds + black text only */
+:root {
+  /* Pastels (very light) */
+  --g-fantasy:       #f3e8ff; /* purple-50 */
+  --g-scifi:         #e0f2fe; /* sky-100 */
+  --g-mystery:       #e9d5ff; /* violet-200 */
+  --g-thriller:      #fee2e2; /* red-200 */
+  --g-romance:       #ffe4e6; /* rose-200 */
+  --g-historical:    #fef9c3; /* yellow-100 */
+  --g-nonfiction:    #dcfce7; /* green-200 */
+  --g-biography:     #f1f5f9; /* slate-100 */
+  --g-ya:            #e0e7ff; /* indigo-100 */
+  --g-horror:        #fee2e2; /* red-200 */
+  --g-adventure:     #dbeafe; /* blue-200 */
+  --g-classic:       #fde68a; /* amber-300 */
+
+  --status-due:      #e0f2fe; /* light blue */
+  --status-today:    #fff7ed; /* light orange */
+  --status-overdue:  #ffe4e6; /* light rose */
+  --status-returned: #dcfce7; /* light green */
+  --status-unknown:  #f1f5f9; /* light slate */
+
+  --border-200:      #e5e7eb;
+  --text:            #000;    /* black */
+}
+
+.e-grid .e-rowcell { vertical-align: middle; color: var(--text); }
+.e-grid a { color: var(--text); text-decoration: underline; }
+
+/* ---------- Generic chips (black text) ---------- */
+.e-grid .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--text);
+  border: 1px solid var(--border-200);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: transparent; /* default transparent */
+}
+
+/* Outline chip variant (no background color) */
+.e-grid .chip--outline {
+  background: transparent;
+}
+
+/* Date chip base + states (only light backgrounds, black text) */
+.e-grid .chip--date { font-variant-numeric: tabular-nums; }
+
+.e-grid .chip--date.is-due { background: var(--status-due); }
+.e-grid .chip--date.is-today { background: var(--status-today); }
+.e-grid .chip--date.is-overdue { background: var(--status-overdue); }
+.e-grid .chip--date.is-returned { background: var(--status-returned); }
+.e-grid .chip--date.is-unknown { background: var(--status-unknown); }
+
+/* ---------- Genre colored chips (different bg per Genre; black text) ---------- */
+.e-grid .gchip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text);
+  border: 1px solid var(--border-200);
+  background: var(--status-unknown);
+}
+.e-grid .g-fantasy     { background: var(--g-fantasy); }
+.e-grid .g-scifi       { background: var(--g-scifi); }
+.e-grid .g-mystery     { background: var(--g-mystery); }
+.e-grid .g-thriller    { background: var(--g-thriller); }
+.e-grid .g-romance     { background: var(--g-romance); }
+.e-grid .g-historical  { background: var(--g-historical); }
+.e-grid .g-nonfiction  { background: var(--g-nonfiction); }
+.e-grid .g-biography   { background: var(--g-biography); }
+.e-grid .g-ya          { background: var(--g-ya); }
+.e-grid .g-horror      { background: var(--g-horror); }
+.e-grid .g-adventure   { background: var(--g-adventure); }
+.e-grid .g-classic     { background: var(--g-classic); }
+
+/* ---------- Status pill (light bg; black text) ---------- */
+.e-grid .pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--border-200);
+  background: var(--status-unknown);
+}
+
+.e-grid .pill--returned { background: var(--status-returned); }
+.e-grid .pill--borrowed { background: var(--status-due); }
+.e-grid .pill--overdue  { background: var(--status-overdue); }
+.e-grid .pill--lost     { background: #f8fafc; border-style: dashed; }
+
+/* Truncation safety */
+.e-grid .chip, .e-grid .pill, .e-grid .gchip {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
