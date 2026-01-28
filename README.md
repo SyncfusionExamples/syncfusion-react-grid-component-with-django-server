@@ -76,6 +76,7 @@ Run the React app:
 npm run dev
 ```
 Navigate to `http://localhost:5173`.
+
 ---
 
 ## Configuration
