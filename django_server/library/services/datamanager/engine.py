@@ -10,7 +10,7 @@ from .filters import build_q_from_where
 from .sorting import apply_sorting
 
 
-class DataHanlerEngine:
+class DataManagerEngine:
     """
     Single-pass DataManager engine that handles:
       - search -> where -> sorting
